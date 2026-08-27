@@ -1,0 +1,24 @@
+# Room Renovation Calculator
+length = float(input("Enter room length: "))    
+width = float(input("Enter room width: "))
+wall_height = float(input("Enter room wall (meters): "))
+tile_price = float(input("Enter room tile (per square meter): "))
+paint_price = float(input("Enter room paint (per liter): "))
+
+#calculate floor area
+floor_area = length * width
+floor_tile_cost = floor_area * tile_price
+
+#calculate wall area
+wall_area = 2 * (length + width) * wall_height
+
+#calculate paint cost
+paint_cost = (wall_area / 10) * paint_price
+
+print("\n--- Calculated Results ---")
+print(f"Floor area: {floor_area:.2f} square meters")
+print(f"Floor tile cost: ${floor_tile_cost:.2f}")
+print(f"Wall area: {wall_area:.2f} square meters")
+print(f"Paint cost: ${paint_cost:.2f}")
+print("-" * 26)
+print(f"Total cost: ${floor_tile_cost + paint_cost:.2f}")

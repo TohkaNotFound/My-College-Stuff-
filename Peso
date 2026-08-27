@@ -1,0 +1,10 @@
+
+
+dollar = float (input ("Enter amount in US Dollars: "))
+exchange_rate = float (input ("Enter amount in Exchange Rate: "))
+
+peso = dollar * exchange_rate
+
+print("US Dollars:", dollar)
+print("Exchange Rate:", exchange_rate)
+print("Philippine Pesos:", peso)

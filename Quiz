@@ -1,0 +1,15 @@
+quiz1 = int(input("Enter Quiz 1 score: "))
+quiz2 = int(input("Enter Quiz 2 score: "))
+quiz3 = int(input("Enter Quiz 3 score: "))
+
+average = (quiz1 + quiz2 + quiz3) / 3
+
+print("\nQuiz 1", quiz1)
+print("Quiz 2", quiz2)
+print("Quiz 3", quiz3)
+print(f"Average: {average:.2f}")
+
+if average >=75:
+    print("Remarks: Passed")
+else:
+    print("Remarks: Failed")    

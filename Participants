@@ -1,0 +1,43 @@
+# Campus Event Budget Calculator
+
+participants = int(input("Enter the number of participants: "))
+
+# Cost per person
+food = 85 * participants
+drinks = 25 * participants
+event_kit = 40 * participants
+
+# Fixed costs
+venue_rental = 3500
+sound_system = 2500
+decoration = 1800
+
+# Total expenses before sponsorship
+total_expenses = (
+    food + drinks + event_kit + venue_rental + sound_system + decoration
+)
+
+# Deduct sponsorhip
+sponsorship = 5000
+after_sponsorship = total_expenses - sponsorship
+
+# Add 10% contigency fund
+contigency_fund = after_sponsorship * 0.10
+final_budget = after_sponsorship + contigency_fund
+
+# Output
+print("\n==== CAMPUS EVENT BUDGET =====")
+print("--------------------------------")
+print("Food:                  ₱", food)
+print("Drinks:                ₱", drinks)
+print("Event Kit:             ₱", event_kit)
+print("Venue Rental:          ₱", venue_rental)
+print("Sound System:          ₱", sound_system)
+print("Decoration:            ₱", decoration)
+print("--------------------------------")
+print("Total Expenses:        ₱", total_expenses)
+print("Sponsorship:           ₱", sponsorship)
+print("After Sponsorship:     ₱", after_sponsorship)
+print("Contingency Fund (10%):      ₱", contigency_fund)
+print("--------------------------------")
+print("Final Budget:          ₱", final_budget)
