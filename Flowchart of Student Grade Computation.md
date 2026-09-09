@@ -1,0 +1,47 @@
+```mermaid
+graph TD
+    A([Start]) --> B[/Input: Student No, Name, Grades/]
+    B --> C[Total_grade = Prelim*0.3 + Midterm*0.3 + Final*0.4]
+    C --> D[rounded_grade = round]
+    
+    D --> E{Check Grade Range}
+    
+    E -- 99-100 --> F1[Rating: 1.0, Excellent]
+    E -- 96-98 --> F2[Rating: 1.25, Excellent]
+    E -- 93-95 --> F3[Rating: 1.5, Very Satisfactory]
+    E -- 90-92 --> F4[Rating: 1.75, Very Satisfactory]
+    E -- 87-89 --> F5[Rating: 2.0, Satisfactory]
+    E -- 84-86 --> F6[Rating: 2.25, Satisfactory]
+    E -- 81-83 --> F7[Rating: 2.5, Fairly Satisfactory]
+    E -- 78-80 --> F8[Rating: 2.75, Fairly Satisfactory]
+    E -- 75-77 --> F9[Rating: 3.0, Passed]
+    E -- 73-74 --> F10[Rating: 4.0, Conditional]
+    E -- 0-72 --> F11[Rating: 5.0, Failed]
+
+    F1 --> G[/Print Student Info/]
+    F2 --> G
+    F3 --> G
+    F4 --> G
+    F5 --> G
+    F6 --> G
+    F7 --> G
+    F8 --> G
+    F9 --> G
+    F10 --> G
+    F11 --> G
+
+    G --> H{rounded_grade >= 75?}
+    
+    H -- Yes --> I[/Print PASSED Message/]
+    H -- No --> J[/Print FAILED Message/]
+    
+    I --> K[/Print Grade Details/]
+    J --> K
+    
+    K --> L[/Ask: Compute another student? yes/no/]
+    L --> M{Answer == yes?}
+    
+    M -- Yes --> B
+    M -- No --> N[/Print Exiting Goodbye/]
+    
+    N --> O([End])
