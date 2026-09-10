@@ -1,0 +1,55 @@
+total_present = 0
+total_absent = 0
+total_late = 0
+total_excused_absences = 0
+total_unexcused_absences = 0
+total_minor_lates = 0
+total_serious_lates = 0
+
+for day in range(1, 6):
+    print(f"--- Day {day} ---")
+
+    while True:
+        status = input("Enter the attendance status for each student (P = Present, A = Absent, L = Late) or 'DONE' when finished: ").upper()
+
+        if status == 'DONE':
+            break
+
+        elif status == 'P':
+            total_present += 1
+
+        elif status == 'A':
+            total_absent += 1
+            excused = input("Is the absence excused? (Y/N): ").upper()
+            if excused == 'Y':
+                total_excused_absences += 1
+            elif excused == 'N':
+                total_unexcused_absences += 1
+
+        elif status == 'L':
+            total_late += 1
+            minutes_late = int(input("Enter the number of minutes late: "))
+            if minutes_late <= 15:
+                total_minor_lates += 1
+            else:
+                total_serious_lates += 1
+
+        else:
+            print("Invalid input. Please enter P, A, L, or DONE.")
+
+print("\n--- Attendance Summary ---")
+print("Total Present: ", total_present)
+print("Total Absent: ", total_absent)
+print("Total Late: ", total_late)
+print("Total Excused Absences: ", total_excused_absences)
+print("Total Unexcused Absences: ", total_unexcused_absences)
+print("Total Minor Lates: ", total_minor_lates)
+print("Total Serious Lates: ", total_serious_lates)
+
+print("\n--- FINAL STATUS ---")
+if total_unexcused_absences > 3:
+    print("AT-RISK STUDENT")
+elif total_serious_lates > 3:
+    print("ATTENDANCE WARNING")
+else: 
+    print("ATTENDANCE STATUS: GOOD")
